@@ -1,0 +1,5 @@
+enabled
+interpreter /usr/bin/wine
+flags: 
+offset 0
+magic 5045

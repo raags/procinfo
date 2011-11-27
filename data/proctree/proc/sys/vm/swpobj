@@ -1,0 +1,17 @@
+default = 60
+sysctl = vm.swappiness
+desc = 
+"
+This control is used to define how aggressive the kernel will swap
+memory pages.  Higher values will increase agressiveness, lower values
+decrease the amount of swap.
+
+The default value is 60.
+"
+more =
+"
+a=
+"
+"
+b=
+"

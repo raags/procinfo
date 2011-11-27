@@ -1,0 +1,1 @@
+|/usr/libexec/abrt-hook-ccpp /var/spool/abrt %s %c %p %u %g %t %h %e 636f726500

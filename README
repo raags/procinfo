@@ -1,0 +1,35 @@
+=== Procinfo ===
+
+Procinfo allows you to acces documentation for /proc tunables. For now, the data is being taken from the latest kernel 
+"Documentation" tree. This can be improved later with more data from other sources.
+
+The intention is to reduce time spent downloding, searching and grepping for information on the numerious tunables 
+resent in a Linux system.
+
+=== Install ===
+
+$ python setup.py install
+
+=== Usage ===
+
+$ ./procinfo.py fs*
+fs.dquot-max
+fs.dentry-state
+fs.overflowgid
+fs.aio-nr
+fs.super-max
+...
+
+
+$ ./procinfo.py fs.super-nr
+fs.super-nr
+
+These numbers control the maximum number of superblocks, and
+thus the maximum number of mounted filesystems the kernel
+can have. You only need to increase super-max if you need to
+mount more filesystems than the current value in super-max
+...
+
+=== Bugs ===
+
+Fork at github and submit
