@@ -36,8 +36,8 @@ except:
 
 KERNELDOC = '/usr/share/doc/kernel-doc-%s/Documentation' % KERNELVER
 sysctl_doc = '%s/sysctl/' % KERNELDOC
-TXTFILES = ('vm.txt', 'kernel.txt', 'fs.txt', 'net.txt', 'sunrpc.txt')
-#TXTFILES = ('vm.txt',)
+TXTFILES = ('vm.txt', 'kernel.txt', 'fs.txt', 'net.core.txt', 'sunrpc.txt')
+#TXTFILES = ('net.core.txt',)
 
 DBPATH = "data.db"
 DATAPATH= "data/docs/"
@@ -51,8 +51,9 @@ def process_frame(frame, sysctl):
     q = re.compile(r'[,&:]')
     tlist = q.split(l[1])
 
-    if not len(tlist) == 1:
-        tlist = tlist[:-1]
+    tlist = filter(None, tlist)                   # remove empty strings from list
+    tlist = filter(lambda x: "(" not in x, tlist) # remove () from the list
+    tlist = filter(lambda x: " " not in x, tlist) # remove spaces
 
     for sys in tlist:
         sys = sys.strip()       # remove whitespace
