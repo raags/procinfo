@@ -48,12 +48,12 @@ def process_frame(frame, sysctl):
     p = re.compile(r'\n\n([a-zA-Z0-9 &_()*,:-]+)[:]*\n[-]*\n')
     l = p.split(frame, maxsplit=1)
 
-    q = re.compile(r'[,&:]')
+    q = re.compile(r'[,&: ]*')
     tlist = q.split(l[1])
 
-    tlist = filter(None, tlist)                   # remove empty strings from list
+    tlist = filter(None, tlist)                   # remove empty elements from list
     tlist = filter(lambda x: "(" not in x, tlist) # remove () from the list
-    tlist = filter(lambda x: " " not in x, tlist) # remove spaces
+    tlist = filter(lambda x: ")" not in x, tlist) 
 
     for sys in tlist:
         sys = sys.strip()       # remove whitespace
